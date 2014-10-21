@@ -1324,7 +1324,7 @@ class Slim
                     $dispatched = $route->dispatch();
                     $this->applyHook('slim.after.dispatch');
                     if ($dispatched) {
-                        break;
+                        return $dispatched;
                     }
                 } catch (\Slim\Exception\Pass $e) {
                     continue;
