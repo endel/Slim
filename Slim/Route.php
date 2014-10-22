@@ -451,7 +451,7 @@ class Route
      * registered for the route, each callable middleware is invoked in
      * the order specified.
      *
-     * @return bool
+     * @return mixed
      */
     public function dispatch()
     {
@@ -460,6 +460,6 @@ class Route
         }
 
         $return = call_user_func_array($this->getCallable(), array_values($this->getParams()));
-        return ($return === false) ? false : true;
+        return ($return === false) ? false : $return;
     }
 }
